@@ -1,5 +1,5 @@
 import React from 'react';
-import { Location, LocationList } from './Components/LocationList';
+import { Location, LocationList } from './LocationList';
 
 interface LeftPanelProps {
     locations: Location[];

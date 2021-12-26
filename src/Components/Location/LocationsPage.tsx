@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './App.css';
 import { LeftPanel } from './LeftPanel';
 import { RightPanel } from './RightPanel';
 import { Link, Outlet } from 'react-router-dom';
@@ -8,22 +7,30 @@ const mockLocations = [
 	{
 		name: 'zzan',
 		address: 'xxx Post St',
-		description: 'Korean soups and snack foods'
+		description: 'Korean soups and snack foods',
+		lat: 37.7876135,
+		long: -122.4146039
 	},
 	{
 		name: 'Amorino',
 		address: '338 Grant Ave, San Francisco, CA 94108',
-		description: 'Italian gelato chain. Makes pretty flowers out of gelato!'
+		description: 'Italian gelato chain. Makes pretty flowers out of gelato!',
+		lat: 37.7902878,
+		long: -122.4076051
 	},
 	{
 		name: 'Cafe de la Presse',
 		address: '352 Grant Ave, San Francisco, CA 94108',
-		description: 'French brunch place'
+		description: 'French brunch place',
+		lat: 37.7904711,
+		long: -122.4075858
 	},
 	{
 		name: 'Blue Bottle',
-		address: 'xxx Kearny St',
-		description: 'An oldie but a goodie. Saves me once every two mornings.'
+		address: '199 Sutter St, San Francisco, CA 94104',
+		description: 'An oldie but a goodie. Saves me once every two mornings.',
+		lat: 37.7897088,
+		long: -122.4057751
 	}
 ]
 
@@ -32,23 +39,6 @@ export const LocationContext = React.createContext(initContextValue);
 
 export const LocationsPage = () => {
 	const [locationForMap, setLocationForMap] = useState(null);
-	
-	function initMap(): void {
-	  const uluru = { lat: -25.344, lng: 131.036 };
-	  const map = new google.maps.Map(
-	    document.getElementById("map") as HTMLElement,
-	    {
-	      zoom: 4,
-	      center: uluru,
-	    }
-	  );
-
-	  // The marker, positioned at Uluru
-	  const marker = new google.maps.Marker({
-	    position: uluru,
-	    map: map,
-	  });
-	}
 
 	return (
 		<>

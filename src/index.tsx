@@ -4,9 +4,9 @@ import './index.css';
 import { App } from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { LocationsPage } from './LocationsPage';
-import { ItinerariesPage } from './ItinerariesPage';
-import { SingleItineraryPage } from './SingleItineraryPage';
+import { LocationsPage } from './Components/Location/LocationsPage';
+import { ItinerariesPage } from './Components/Itinerary/ItinerariesPage';
+import { SingleItineraryPage } from './Components/Itinerary/SingleItineraryPage';
 
 ReactDOM.render(
   <React.StrictMode>

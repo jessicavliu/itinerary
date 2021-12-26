@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { LeftPanel } from './LeftPanel';
-import { RightPanel } from './RightPanel';
-import { Location } from './Components/LocationList'
-import { BrowserRouter, Link, Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 const mockLocations = [
 	{

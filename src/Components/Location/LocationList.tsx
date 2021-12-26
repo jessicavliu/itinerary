@@ -6,6 +6,8 @@ export interface Location {
     name: string;
     address: string;
     description: string;
+    lat: number;
+    long: number;
 }
 
 interface LocationListProps{

@@ -1,11 +1,6 @@
 import React, { useContext } from 'react';
-import { Location, LocationList } from './Components/LocationList';
 import { LocationContext } from './LocationsPage';
-import { MapDisplay } from './MapDisplay';
-
-interface RightPanelProps {
-    locations: Location[];
-}
+import { MapWrapper } from './MapWrapper';
 
 export const RightPanel = () => {
     const {locationForMap} = useContext(LocationContext);
@@ -18,7 +13,7 @@ export const RightPanel = () => {
 
     return (
         <>
-            <div className ="outline w-100 pa3 mr2" id="map">A Map Display {locationMessageSuffix}</div>
+            <MapWrapper></MapWrapper>
             <br/>
             <button onClick={onAddLocationToItineraryClick}>Add location to an itinerary</button>
         </>
