@@ -1,12 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import { App } from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { LocationsPage } from './LocationsPage';
+import { ItinerariesPage } from './ItinerariesPage';
+import { SingleItineraryPage } from './SingleItineraryPage';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />}>
+          <Route path="locations" element={<LocationsPage />} />
+          <Route path="itineraries" element={<ItinerariesPage />}/>  
+          <Route path="itineraries/:itineraryId" element={<SingleItineraryPage/>}/>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

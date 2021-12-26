@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { LocationContext } from '../LocationsPage';
 import { Location } from './LocationList';
 
 interface LocationDisplayProps {
     location: Location;
 }
 export const LocationDisplay = ({location}: LocationDisplayProps) => {
+    const {setLocationForMap} = useContext(LocationContext);
+    
+    
     const handleLocationDisplayClick = () => {
         console.log("location selected");
+        setLocationForMap(location);
     }
 
     return (

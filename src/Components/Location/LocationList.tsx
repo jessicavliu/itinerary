@@ -15,7 +15,6 @@ interface LocationListProps{
 export const LocationList = ({locations}: LocationListProps) => {
     return (
         <>
-
             {
                 locations.map((child, idx) => {
                     return (
