@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { LocationDisplay } from './LocationDisplay'; 
+import { LocationCell } from './LocationCell'; 
 
 export interface Location {
     name: string;
@@ -20,7 +20,7 @@ export const LocationList = ({locations}: LocationListProps) => {
             {
                 locations.map((child, idx) => {
                     return (
-                        <LocationDisplay location={child} key={idx}/>
+                        <LocationCell location={child} key={idx}/>
                     );
                 })
             }

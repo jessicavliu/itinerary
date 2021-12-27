@@ -6,7 +6,7 @@ import { Link, Outlet } from 'react-router-dom';
 const mockLocations = [
 	{
 		name: 'zzan',
-		address: 'xxx Post St',
+		address: '643 Post St, San Francisco, CA, 94102',
 		description: 'Korean soups and snack foods',
 		lat: 37.7876135,
 		long: -122.4146039

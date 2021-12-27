@@ -2,10 +2,10 @@ import React, { useContext } from 'react';
 import { LocationContext } from './LocationsPage';
 import { Location } from './LocationList';
 
-interface LocationDisplayProps {
+interface LocationCellProps {
     location: Location;
 }
-export const LocationDisplay = ({location}: LocationDisplayProps) => {
+export const LocationCell = ({location}: LocationCellProps) => {
     const {setLocationForMap} = useContext(LocationContext);
     
     
