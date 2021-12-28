@@ -1,22 +1,21 @@
-import React, { useContext } from 'react';
-import { LocationContext } from './LocationsPage';
+import React, { useContext, useState } from 'react';
+import { AddLocationModal } from '../../Modal/AddLocationModal';
 import { LocationMap } from './LocationMap';
+import { LocationContext } from './LocationsPage';
 
 export const RightPanel = () => {
-    const {locationForMap} = useContext(LocationContext);
     const onAddLocationToItineraryClick = () => {
-        console.log('location added to an itinerary');
-        // Open 'add location to itinerary modal'
+        console.log('location added to itinerary');
     }
-
-    const locationMessageSuffix = locationForMap ? `for ${locationForMap.name}` : '';
 
     return (
         <>
             <LocationMap/>
             <br/>
-            <button onClick={onAddLocationToItineraryClick}>Add location to an itinerary</button>
+            <button onClick={onAddLocationToItineraryClick}>Add to itinerary</button>
         </>
     );
 };
+
+
 

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { AddLocationModal } from '../../Modal/AddLocationModal';
 import { Location, LocationList } from './LocationList';
 
 interface LeftPanelProps {
@@ -6,9 +7,14 @@ interface LeftPanelProps {
 }
 
 export const LeftPanel = ({locations}: LeftPanelProps) => {
+    const [showModal, setShowModal] = useState(false);
     const onAddLocationClick = () => {
-        console.log('location added');
         // Add to location table in db
+        setShowModal(true);
+    }
+
+    const onModalClose = () => {
+        setShowModal(false);
     }
 
     return (
@@ -17,6 +23,7 @@ export const LeftPanel = ({locations}: LeftPanelProps) => {
             <LocationList locations={locations} />
             <br/>
             <button onClick={onAddLocationClick}>Add location</button>
+            { showModal && <AddLocationModal show={showModal} handleClose={onModalClose}/> }
         </>
     );
 };
