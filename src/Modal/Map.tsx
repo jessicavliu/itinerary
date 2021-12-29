@@ -1,6 +1,7 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
 
-import { useDeepCompareEffectForMaps } from './GoogleMapsUtils';
+import { useDeepCompareEffectForMaps } from '../Components/GoogleMapsUtils/GoogleMapsUtils';
+import { SearchBox } from './SearchBox';
 
 interface MapProps extends google.maps.MapOptions {
     style: { [key: string]: string };
@@ -39,6 +40,7 @@ export const Map: FC<MapProps> = ({onIdle, style, children, ...options}: MapProp
     return (
         <>
             <div ref={ref} style={style} />
+            
             {React.Children.map(children, (child) => {
                 if (React.isValidElement(child)) {
                     return React.cloneElement(child, { map });
