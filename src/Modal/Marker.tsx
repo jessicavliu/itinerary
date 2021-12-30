@@ -1,25 +1,31 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC } from 'react';
+import styled from 'styled-components';
 
-export const Marker: FC<google.maps.MarkerOptions> = (options) => {
-    const [marker, setMarker] = useState<google.maps.Marker>();
+interface MarkerProps {
+  	onClick?: () => void;
+}
 
-    useEffect(() => {
-        if (!marker) {
-            setMarker(new google.maps.Marker());
-        }
 
-        return () => {
-            if(marker) {
-                marker?.setMap(null);
-            }
-        }
-    }, [marker]);
+export const Marker: FC<MarkerProps> = ({onClick}: MarkerProps) => {
+	const Wrapper = styled.div`
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 18px;
+	height: 18px;
+	background-color: #000;
+	border: 2px solid #fff;
+	border-radius: 100%;
+	user-select: none;
+	transform: translate(-50%, -50%);
+	cursor: ${(props) => (props.onClick ? 'pointer' : 'default')};
+	&:hover {
+	  	z-index: 1;
+	}`;
 
-    useEffect(() => {
-        if(marker) {
-            marker.setOptions(options);
-        }
-    }, [marker, options]);
-
-    return null;
+  return (
+	<Wrapper
+	  	onClick={onClick}
+	/>
+  );
 };
