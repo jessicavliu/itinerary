@@ -1,14 +1,17 @@
 import { useParams } from "react-router";
-
-interface SingleItineraryPageProps {
-    itinerary: any;
-}
+import { LocationList } from "../Location/LocationList";
+import { mockItineraries } from "../../Models/MockItineraries";
 
 export const SingleItineraryPage = () => {
     const params = useParams();
+
+    const itinerary = mockItineraries.filter(itinerary => itinerary.id === parseInt(params.itineraryId!))[0];
+    console.log(itinerary)
+
     return (
         <>
-            {params.itineraryId}
+            <div>{itinerary.name}</div>
+            <LocationList locations={itinerary.locations}/>
         </>
     )
 };

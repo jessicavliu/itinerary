@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 
 import configData from "../../config.json";
 
-import { LocationContext } from './LocationsPage';
+import { LocationContext } from '../../App';
 
 export const LocationMap = () => {
     const {locationForMap} = useContext(LocationContext);

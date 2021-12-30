@@ -1,7 +1,7 @@
 import React, { ReactChild } from 'react';
 import styled from 'styled-components';
 import GoogleMapReact, { Props } from 'google-map-react';
-import configData from "../config.json";
+import configData from "../../config.json";
 
 interface GoogleMapProps extends Props {
 	children?: ReactChild[];
@@ -9,7 +9,7 @@ interface GoogleMapProps extends Props {
 
 const Wrapper = styled.main`
 	width: 100%;
-	height: 100%;
+	height: 80%;
 `;
 
 

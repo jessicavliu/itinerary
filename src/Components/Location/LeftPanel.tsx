@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AddLocationModal } from '../../Modal/AddLocationModal';
+import { AddLocationModal } from '../Modal/AddLocationModal';
 import { Location, LocationList } from './LocationList';
 
 interface LeftPanelProps {

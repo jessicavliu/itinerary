@@ -14,7 +14,6 @@ export const MapWrapper = () => {
     const [zoom, setZoom] = useState(3);
     const [mapInstance, setMapInstance] = useState<google.maps.Map>();
     const [mapApiLoaded, setMapApiLoaded] = useState(false);
-    const places: google.maps.places.PlaceResult[] = [];
 
     let lat = 0;
     let lng = 0;

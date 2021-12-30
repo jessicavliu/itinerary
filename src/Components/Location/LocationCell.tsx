@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { LocationContext } from './LocationsPage';
+import { LocationContext } from '../../App';
 import { Location } from './LocationList';
 
 interface LocationCellProps {

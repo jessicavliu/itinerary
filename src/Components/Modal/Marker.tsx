@@ -5,7 +5,6 @@ interface MarkerProps {
   	onClick?: () => void;
 }
 
-
 export const Marker: FC<MarkerProps> = ({onClick}: MarkerProps) => {
 	const Wrapper = styled.div`
 	position: absolute;

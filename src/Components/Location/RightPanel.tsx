@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
-import { AddLocationModal } from '../../Modal/AddLocationModal';
+import { AddLocationModal } from '../Modal/AddLocationModal';
 import { LocationMap } from './LocationMap';
-import { LocationContext } from './LocationsPage';
+import { LocationContext } from '../../App';
 
 export const RightPanel = () => {
     const onAddLocationToItineraryClick = () => {

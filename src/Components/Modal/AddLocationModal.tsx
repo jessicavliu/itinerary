@@ -1,5 +1,5 @@
-import '../styles/modal.css';
-import '../styles/map.css';
+import '../../styles/modal.css';
+import '../../styles/map.css';
 import { MapWrapper } from './MapWrapper';
 
 interface AddLocationModalProps {

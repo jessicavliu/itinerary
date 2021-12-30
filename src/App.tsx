@@ -1,34 +1,16 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Link, Outlet } from 'react-router-dom';
 
-const mockLocations = [
-	{
-		name: 'zzan',
-		address: 'xxx Post St',
-		description: 'Korean soups and snack foods'
-	},
-	{
-		name: 'Amorino',
-		address: 'xxx Grant Ave',
-		description: 'Italian gelato chain. Makes pretty flowers out of gelato!'
-	},
-	{
-		name: 'Cafe de la Presse',
-		address: 'xxx Grant Ave',
-		description: 'French brunch place'
-	},
-	{
-		name: 'Blue Bottle',
-		address: 'xxx Kearny St',
-		description: 'An oldie but a goodie. Saves me once every two mornings.'
-	},
-]
+const initContextValue: any = null;
+export const LocationContext = React.createContext(initContextValue);
 
 export const App = () => {
+	const [locationForMap, setLocationForMap] = useState(null);
+
 	return (
 		<>
+			<LocationContext.Provider value={{ locationForMap, setLocationForMap }}>
 			<link rel="stylesheet" href="https://unpkg.com/tachyons@4/css/tachyons.min.css"></link>
 			<ul>
 				<li><Link to="/">Home</Link></li>
@@ -36,6 +18,7 @@ export const App = () => {
 				<li><Link to="/locations">Locations</Link></li>
 			</ul>
 			<Outlet/>
+			</LocationContext.Provider>
 		</>
 	);
 }
