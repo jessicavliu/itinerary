@@ -1,4 +1,12 @@
-export const mockItineraries = [
+import { MapLocation } from './MockLocations';
+
+export interface Itinerary{
+    id: number,
+    name: string,
+    locations: MapLocation[]
+}
+
+export const mockItineraries: Itinerary[] = [
     {
         id: 0,
         name: 'Foodles around Lower Nob Hill',

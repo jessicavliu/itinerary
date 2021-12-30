@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { AddLocationModal } from '../Modal/AddLocationModal';
-import { Location, LocationList } from './LocationList';
+import { LocationList } from './LocationList';
+import { MapLocation } from '../../Models/MockLocations';
 
 interface LeftPanelProps {
-    locations: Location[];
+    locations: MapLocation[];
 }
 
 export const LeftPanel = ({locations}: LeftPanelProps) => {

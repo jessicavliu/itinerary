@@ -1,7 +1,5 @@
-import React, { useContext, useState } from 'react';
-import { AddLocationModal } from '../Modal/AddLocationModal';
-import { LocationMap } from './LocationMap';
-import { LocationContext } from '../../App';
+import React from 'react';
+import { MainMap } from './MainMap';
 
 export const RightPanel = () => {
     const onAddLocationToItineraryClick = () => {
@@ -10,7 +8,7 @@ export const RightPanel = () => {
 
     return (
         <>
-            <LocationMap/>
+            <MainMap/>
             <br/>
             <button onClick={onAddLocationToItineraryClick}>Add to itinerary</button>
         </>

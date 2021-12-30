@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { LocationContext } from '../../App';
-import { Location } from './LocationList';
+import { MapLocation } from '../../Models/MockLocations';
 
 interface LocationCellProps {
-    location: Location;
+    location: MapLocation;
 }
 export const LocationCell = ({location}: LocationCellProps) => {
     const {setLocationForMap} = useContext(LocationContext);

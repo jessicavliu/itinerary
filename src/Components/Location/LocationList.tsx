@@ -1,17 +1,10 @@
 import React from 'react';
 
 import { LocationCell } from './LocationCell'; 
-
-export interface Location {
-    name: string;
-    address: string;
-    description: string;
-    lat: number;
-    long: number;
-}
+import { MapLocation } from '../../Models/MockLocations';
 
 interface LocationListProps{
-    locations: Location[];
+    locations: MapLocation[];
 }
 
 export const LocationList = ({locations}: LocationListProps) => {

@@ -1,3 +1,11 @@
+export interface MapLocation {
+    name: string;
+    address: string;
+    description: string;
+    lat: number;
+    long: number;
+}
+
 export const mockLocations = [
 	{
 		name: 'zzan',

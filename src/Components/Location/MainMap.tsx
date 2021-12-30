@@ -4,7 +4,7 @@ import configData from "../../config.json";
 
 import { LocationContext } from '../../App';
 
-export const LocationMap = () => {
+export const MainMap = () => {
     const {locationForMap} = useContext(LocationContext);
 
     return (
