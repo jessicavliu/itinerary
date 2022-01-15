@@ -1,10 +1,10 @@
 import '../../styles/modal.css';
 import '../../styles/map.css';
 import { MapWrapper } from './MapWrapper';
-import { mockItineraries } from '../../Models/MockItineraries';
 import { useCallback, useContext, useEffect, useRef, useState } from 'react';
-import { getItineraryById, putAddLocationToItinerary } from '../../Services/ItineraryService';
 import { LocationContext } from '../../App';
+import axios from 'axios';
+import { MapLocation } from '../../Models/MockLocations';
 
 interface AddLocationModalProps {
     show: boolean;
@@ -23,17 +23,18 @@ export const AddLocationModal = ({ show, handleClose }: AddLocationModalProps) =
         }
     }, [ref]);
 
-    const handleAddLocationToItinerary = useCallback(() => {
-        const itinerary = getItineraryById(parseInt(dropdownValue));
-        putAddLocationToItinerary(itinerary, locationForMap);
+    const handleAddLocation = useCallback(() => {
+        // const itinerary = getItineraryById(parseInt(dropdownValue));
+        axios.post('/locations', locationForMap)
+            .then(res => {
+                console.log(res);
+                handleClose();
+            })
+        .catch(err => console.error(err))
 
         // update location db to have associated itinerary
         console.log('added location to itinerary')
-
-        handleClose();
-    }, [handleClose]);
-
-    console.log('rerender location modal');
+    }, [handleClose, locationForMap]);
 
     return (
         <div className={showHideClassName}>
@@ -46,15 +47,16 @@ export const AddLocationModal = ({ show, handleClose }: AddLocationModalProps) =
                 </div>
                 <div>
                     <span>Add to itineraries: </span>
-                    <select ref={ref}>
+                    {/* <select ref={ref}>
                         {
+                            <option value={-1}>None</option>
                             mockItineraries.map(itinerary => (
                                 <option value={itinerary.id}>{itinerary.name}</option>
                             ))
                         }
-                    </select>
+                    </select> */}
                 </div>
-                <button type="button" onClick={handleAddLocationToItinerary}>
+                <button type="button" onClick={handleAddLocation}>
                     Add location
                 </button>
             </section>

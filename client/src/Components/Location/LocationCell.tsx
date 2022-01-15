@@ -6,11 +6,9 @@ interface LocationCellProps {
     location: MapLocation;
 }
 export const LocationCell = ({location}: LocationCellProps) => {
-    const {setLocationForMap} = useContext(LocationContext);
-    
+    const {locationForMap, setLocationForMap} = useContext(LocationContext);
     
     const handleLocationDisplayClick = () => {
-        console.log("location selected");
         setLocationForMap(location);
     }
 

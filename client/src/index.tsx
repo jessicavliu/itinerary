@@ -8,14 +8,16 @@ import { LocationsPage } from './Components/Location/LocationsPage';
 import { ItinerariesPage } from './Components/Itinerary/ItinerariesPage';
 import { SingleItineraryPage } from './Components/Itinerary/SingleItineraryPage';
 
+const useDb = true;
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}>
-          <Route path="locations" element={<LocationsPage />} />
-          <Route path="itineraries" element={<ItinerariesPage />}/>  
-          <Route path="itineraries/:itineraryId" element={<SingleItineraryPage/>}/>
+          <Route path="locations" element={<LocationsPage useDb={useDb}/>} />
+          <Route path="itineraries" element={<ItinerariesPage useDb={useDb}/>}/>  
+          <Route path="itineraries/:itineraryId" element={<SingleItineraryPage useDb={useDb}/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

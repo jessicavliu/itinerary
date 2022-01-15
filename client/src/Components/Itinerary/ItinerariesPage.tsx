@@ -3,7 +3,11 @@ import { ItineraryCell } from './ItineraryCell';
 
 import { mockItineraries } from '../../Models/MockItineraries';
 
-export const ItinerariesPage = () => {
+interface ItinerariesPageProps {
+    useDb: boolean;
+}
+
+export const ItinerariesPage = ({useDb}: ItinerariesPageProps) => {
     return (
         <>
             <div>Itineraries</div>

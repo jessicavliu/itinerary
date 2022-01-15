@@ -1,13 +1,26 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { AddLocationModal } from '../Modal/AddLocationModal';
 import { LocationList } from './LocationList';
 import { MapLocation } from '../../Models/MockLocations';
+import axios from 'axios';
 
 interface LeftPanelProps {
     locations: MapLocation[];
+    useDb: boolean;
 }
 
-export const LeftPanel = ({locations}: LeftPanelProps) => {
+export const LeftPanel = ({locations, useDb}: LeftPanelProps) => {
+    let [shownLocations, setShownLocations] = useState(locations);
+    useEffect(() => {
+        if (useDb) {
+            axios.get('locations')
+                .then(res => setShownLocations(res.data))
+                .catch(err => console.error(err));
+            console.log(shownLocations);
+        }
+    }, [setShownLocations, useDb]);
+
+    console.log(shownLocations)
     const [showModal, setShowModal] = useState(false);
     const onAddLocationClick = () => {
         // Add to location table in db
@@ -21,7 +34,7 @@ export const LeftPanel = ({locations}: LeftPanelProps) => {
     return (
         <>
             <h2>All locations</h2>
-            <LocationList locations={locations} />
+            <LocationList locations={shownLocations} />
             <br/>
             <button onClick={onAddLocationClick}>Add location</button>
             { showModal && <AddLocationModal show={showModal} handleClose={onModalClose}/> }

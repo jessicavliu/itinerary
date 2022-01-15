@@ -2,13 +2,11 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import axios from 'axios';
 import { Link, Outlet } from 'react-router-dom';
-import { isAsExpression } from 'typescript';
 
 const initContextValue: any = null;
 export const LocationContext = React.createContext(initContextValue);
 
 export const App = () => {
-
 	const [locationForMap, setLocationForMap] = useState(null);
 
 	return (

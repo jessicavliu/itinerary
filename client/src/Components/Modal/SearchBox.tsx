@@ -83,15 +83,15 @@ export const SearchBox: FC<SearchBoxProps> = ({ map }: SearchBoxProps) => {
 
         });
 
-        if(places.length == 1) {
+        if(places.length === 1) {
             // TODO: this shouldn't be using the LocationContext which is for the main map, but maybe a "ModalLocationContext".
             // Or maybe move to redux, b/c I don't think I'm supposed to be using useContext to change parent values.
             setLocationForMap({
                 name: places[0].name,
-                address: places[0].formatted_address,
+                address: places[0].formatted_address ?? '',
                 description: '',
-                lat: places[0].geometry ? places[0].geometry.location.lat() : 0,
-                long: places[0].geometry ? places[0].geometry.location.lng() : 0,
+                lat: places[0].geometry?.location?.lat() ?? 0,
+                lng: places[0].geometry?.location?.lng() ?? 0
             });
         }
         map.fitBounds(bounds);
