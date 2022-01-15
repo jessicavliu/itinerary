@@ -5,16 +5,16 @@ CREATE TABLE locations(
     description VARCHAR(400),
     lat DECIMAL,
     lng DECIMAL,
-    date_created TIMESTAMP,
-    date_modified TIMESTAMP
+    date_created TIMESTAMP DEFAULT current_timestamp,
+    date_modified TIMESTAMP DEFAULT current_timestamp
 );
 
 CREATE TABLE itineraries(
     itinerary_id serial PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     description VARCHAR(400),
-    date_created TIMESTAMP,
-    date_modified TIMESTAMP
+    date_created TIMESTAMP DEFAULT current_timestamp,
+    date_modified TIMESTAMP DEFAULT current_timestamp
 );
 
 CREATE TABLE itinerary_locations(
