@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { LocationCell } from './LocationCell'; 
-import { MapLocation } from '../../Models/MockLocations';
+import { MapLocation } from '../../Models/MapLocation';
 
 interface LocationListProps{
     locations: MapLocation[];

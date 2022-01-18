@@ -1,6 +1,5 @@
 import React, { FC, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
-import { markAsUntransferable } from 'worker_threads';
 import { LocationContext } from '../../App';
 
 const Wrapper = styled.div`
@@ -89,6 +88,7 @@ export const SearchBox: FC<SearchBoxProps> = ({ map }: SearchBoxProps) => {
             setLocationForMap({
                 name: places[0].name,
                 address: places[0].formatted_address ?? '',
+                rating: places[0].rating,
                 description: '',
                 lat: places[0].geometry?.location?.lat() ?? 0,
                 lng: places[0].geometry?.location?.lng() ?? 0

@@ -2,6 +2,7 @@ CREATE TABLE locations(
     location_id serial PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     address VARCHAR (200) NOT NULL,
+    rating DECIMAL,
     description VARCHAR(400),
     lat DECIMAL,
     lng DECIMAL,

@@ -4,7 +4,7 @@ import { MapWrapper } from './MapWrapper';
 import { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { LocationContext } from '../../App';
 import axios from 'axios';
-import { MapLocation } from '../../Models/MockLocations';
+import { MapLocation } from '../../Models/MapLocation';
 
 interface AddLocationModalProps {
     show: boolean;

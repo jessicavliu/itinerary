@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { AddLocationModal } from '../Modal/AddLocationModal';
 import { LocationList } from './LocationList';
-import { MapLocation } from '../../Models/MockLocations';
+import { MapLocation } from '../../Models/MapLocation';
 import axios from 'axios';
 
 interface LeftPanelProps {

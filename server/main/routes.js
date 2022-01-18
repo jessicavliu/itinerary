@@ -26,12 +26,13 @@ router.post('/locations', (req, res, next) => {
 	values = [
 		req.body.name,
 		req.body.address,
+		req.body.rating,
 		req.body.description,
 		req.body.lat,
 		req.body.lng
 	];
 
-	pool.query(`INSERT INTO locations(name, address, description, lat, lng) VALUES ($1, $2, $3, $4, $5)`,
+	pool.query(`INSERT INTO locations(name, address, rating, description, lat, lng) VALUES ($1, $2, $3, $4, $5, $6)`,
 		values,
 		(q_err, q_res) => {
 			console.log(q_err)
