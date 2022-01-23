@@ -1,6 +1,6 @@
 import React, { FC, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
-import { LocationContext } from '../../App';
+import { ModalLocationContext } from '../../Models/LocationContext';
 
 const Wrapper = styled.div`
   position: relative;
@@ -19,7 +19,7 @@ export const SearchBox: FC<SearchBoxProps> = ({ map }: SearchBoxProps) => {
     const [searchBox, setSearchBox] = useState<google.maps.places.SearchBox>();
     const ref = useRef<HTMLInputElement>(null);
     let markers: google.maps.Marker[] = [];
-    const {setLocationForMap} = useContext(LocationContext);
+    const {setLocationForMap} = useContext(ModalLocationContext);
 
     useEffect(() => {
         if (ref.current) {

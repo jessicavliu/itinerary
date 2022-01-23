@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
-import { LocationContext } from '../../App';
+import { MainLocationContext } from '../../Models/LocationContext';
 import { MapLocation } from '../../Models/MapLocation';
 
 interface LocationCellProps {
     location: MapLocation;
 }
 export const LocationCell = ({location}: LocationCellProps) => {
-    const {setLocationForMap} = useContext(LocationContext);
+    const {setLocationForMap} = useContext(MainLocationContext);
     
     const handleLocationDisplayClick = () => {
         setLocationForMap(location);

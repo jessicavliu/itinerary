@@ -1,10 +1,10 @@
 import axios from 'axios';
 import React, { useCallback, useContext } from 'react';
-import { LocationContext } from '../../App';
+import { MainLocationContext } from '../../Models/LocationContext';
 import { MainMap } from './MainMap';
 
 export const RightPanel = () => {
-    const {locationForMap} = useContext(LocationContext);
+    const {locationForMap} = useContext(MainLocationContext);
     const handleAddLocationToItineraryClick = useCallback(() => {
         console.log('location added to itinerary');
     }, []);

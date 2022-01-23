@@ -1,17 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './App.css';
-import axios from 'axios';
 import { Link, Outlet } from 'react-router-dom';
 
-const initContextValue: any = null;
-export const LocationContext = React.createContext(initContextValue);
-
 export const App = () => {
-	const [locationForMap, setLocationForMap] = useState(null);
 
 	return (
 		<>
-			<LocationContext.Provider value={{ locationForMap, setLocationForMap }}>
 			<link rel="stylesheet" href="https://unpkg.com/tachyons@4/css/tachyons.min.css"></link>
 			<ul>
 				<li><Link to="/">Home</Link></li>
@@ -19,7 +13,6 @@ export const App = () => {
 				<li><Link to="/locations">Locations</Link></li>
 			</ul>
 			<Outlet/>
-			</LocationContext.Provider>
 		</>
 	);
 }
