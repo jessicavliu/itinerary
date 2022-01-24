@@ -4,12 +4,12 @@ import { MapLocation } from '../../Models/MapLocation';
 
 interface LocationCellProps {
     location: MapLocation;
+    setMainMapLocation: any;
 }
-export const LocationCell = ({location}: LocationCellProps) => {
-    const {setLocationForMap} = useContext(MainLocationContext);
+export const LocationCell = ({location, setMainMapLocation}: LocationCellProps) => {
     
     const handleLocationDisplayClick = () => {
-        setLocationForMap(location);
+        setMainMapLocation(location);
     }
 
     return (

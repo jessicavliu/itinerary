@@ -19,7 +19,7 @@ export const SearchBox: FC<SearchBoxProps> = ({ map }: SearchBoxProps) => {
     const [searchBox, setSearchBox] = useState<google.maps.places.SearchBox>();
     const ref = useRef<HTMLInputElement>(null);
     let markers: google.maps.Marker[] = [];
-    const {setLocationForMap} = useContext(ModalLocationContext);
+    const {setModalMapLocation} = useContext(ModalLocationContext);
 
     useEffect(() => {
         if (ref.current) {
@@ -85,7 +85,7 @@ export const SearchBox: FC<SearchBoxProps> = ({ map }: SearchBoxProps) => {
         if(places.length === 1) {
             // TODO: this shouldn't be using the LocationContext which is for the main map, but maybe a "ModalLocationContext".
             // Or maybe move to redux, b/c I don't think I'm supposed to be using useContext to change parent values.
-            setLocationForMap({
+            setModalMapLocation({
                 name: places[0].name,
                 address: places[0].formatted_address ?? '',
                 rating: places[0].rating,

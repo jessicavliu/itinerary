@@ -10,6 +10,7 @@ import { SingleItineraryPage } from './Components/Itinerary/SingleItineraryPage'
 
 const useDb = true;
 
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>

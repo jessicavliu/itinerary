@@ -15,7 +15,7 @@ export const SingleItineraryPage = ({useDb}: SingleItineraryPageProps) => {
     return (
         <>
             <div>{itinerary.name}</div>
-            <LocationList locations={itinerary.locations}/>
+            {/* <LocationList locations={itinerary.locations}/> */}
         </>
     )
 };

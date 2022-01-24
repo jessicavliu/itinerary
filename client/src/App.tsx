@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { Link, Outlet } from 'react-router-dom';
+import { mockLocations } from './Models/MockLocations';
 
 export const App = () => {
-
 	return (
 		<>
 			<link rel="stylesheet" href="https://unpkg.com/tachyons@4/css/tachyons.min.css"></link>

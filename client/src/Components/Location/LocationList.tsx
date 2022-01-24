@@ -5,15 +5,16 @@ import { MapLocation } from '../../Models/MapLocation';
 
 interface LocationListProps{
     locations: MapLocation[];
+    setMainMapLocation: any;
 }
 
-export const LocationList = ({locations}: LocationListProps) => {
+export const LocationList = ({locations, setMainMapLocation}: LocationListProps) => {
     return (
         <>
             {
                 locations.map((child, idx) => {
                     return (
-                        <LocationCell location={child} key={idx}/>
+                        <LocationCell setMainMapLocation={setMainMapLocation} location={child} key={idx}/>
                     );
                 })
             }

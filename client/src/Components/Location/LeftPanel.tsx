@@ -1,47 +1,38 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { AddLocationModal } from '../Modal/AddLocationModal';
 import { LocationList } from './LocationList';
 import { MapLocation } from '../../Models/MapLocation';
-import axios from 'axios';
-import { ModalLocationContext } from '../../Models/LocationContext';
 
 interface LeftPanelProps {
-	locations: MapLocation[];
-	useDb: boolean;
+	locations: MapLocation[]
+	fetchCurrentLocations: () => Promise<void>;
+	setMainMapLocation: any;
 }
 
-export const LeftPanel = ({locations, useDb}: LeftPanelProps) => {
-	let [shownLocations, setShownLocations] = useState(locations);
-	
+export const LeftPanel = ({locations, fetchCurrentLocations, setMainMapLocation}: LeftPanelProps) => {
+
 	useEffect(() => {
-		if (useDb) {
-			axios.get('locations')
-				.then(res => setShownLocations(res.data))
-				.catch(err => console.error(err));
-			console.log(shownLocations);
+		fetchCurrentLocations();
 		}
-	}, [setShownLocations, useDb]);
+	, [fetchCurrentLocations]);
 
-	console.log(shownLocations)
 	const [showModal, setShowModal] = useState(false);
-	const onAddLocationClick = () => {
-		// Add to location table in db
+	const onAddLocationClick = useCallback(() => {
 		setShowModal(true);
-	}
+	}, [setShowModal]);
 
-	const onModalClose = () => {
+	const onModalClose = useCallback(() => {
 		setShowModal(false);
-	}
+	}, [setShowModal])
 
 	return (
 		<>
 			<h2>All locations</h2>
-			<LocationList locations={shownLocations} />
+			<LocationList setMainMapLocation={setMainMapLocation} locations={locations}  />
 			<br/>
 			<button onClick={onAddLocationClick}>Add location</button>
 			{ showModal && 
-				
-					<AddLocationModal show={showModal} handleClose={onModalClose}/>
+					<AddLocationModal setMainMapLocation={setMainMapLocation} show={showModal} fetchCurrentLocations={fetchCurrentLocations} handleClose={onModalClose}/>
 			}
 		</>
 	);
